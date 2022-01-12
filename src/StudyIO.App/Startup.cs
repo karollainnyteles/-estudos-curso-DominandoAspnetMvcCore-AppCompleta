@@ -8,7 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StudyIO.App.Data;
+using StudyIO.Business.Interfaces;
 using StudyIO.Data.Context;
+using StudyIO.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +41,12 @@ namespace StudyIO.App
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            services.AddScoped<MeuDbContext>();
+            services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<IFornecedorRepository, FornecedorRepository>();
+            services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+
             services.AddRazorPages();
         }
 
