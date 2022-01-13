@@ -26,7 +26,6 @@ namespace StudyIO.App.ViewModels
         [DisplayName("Ativo?")]
         public bool Ativo { get; set; }
 
-        /* EF Relations */
         public IEnumerable<ProdutoViewModel> Produtos { get; set; }
     }
 }
