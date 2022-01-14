@@ -43,7 +43,7 @@
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Fornecedor.Documento)
+                    @Html.DisplayFor(modelItem => item.Fornecedor.Nome)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Valor)
@@ -53,8 +53,8 @@
                 </td>
 
                 <td class="text-right">
-                    <a class="btn btn-warning" asp-action="Details" asp-route-id="@item.Id"><spam class="fa fa-pencil-alt"></spam></a>
-                    <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.Id"><spam class="fa fa-search"></a>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><spam class="fa fa-search"></spam></a>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><spam class="fa fa-pencil-alt"></a>
                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><spam class="fa fa-trash"></spam></a>
                 </td>
             </tr>
