@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace StudyIO.App.Controllers
 {
-    public class ProdutoController : BaseController
+    public class ProdutosController : BaseController
     {
         private readonly IProdutoRepository _produtoRepository;
         private readonly IFornecedorRepository _fornecedorRepository;
         private readonly IMapper _mapper;
 
-        public ProdutoController(IProdutoRepository produtoRepository, IFornecedorRepository fornecedorRepository, IMapper mapper)
+        public ProdutosController(IProdutoRepository produtoRepository, IFornecedorRepository fornecedorRepository, IMapper mapper)
         {
             _produtoRepository = produtoRepository;
             _fornecedorRepository = fornecedorRepository;

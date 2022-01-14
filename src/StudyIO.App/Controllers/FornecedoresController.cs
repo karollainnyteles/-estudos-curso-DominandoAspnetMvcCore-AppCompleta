@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace StudyIO.App.Controllers
 {
-    public class FornecedorController : BaseController
+    public class FornecedoresController : BaseController
     {
         private readonly IFornecedorRepository _fornecedorRepository;
         private readonly IMapper _mapper;
 
-        public FornecedorController(IFornecedorRepository fornecedorRepository, IMapper mapper)
+        public FornecedoresController(IFornecedorRepository fornecedorRepository, IMapper mapper)
         {
             _fornecedorRepository = fornecedorRepository;
             _mapper = mapper;
