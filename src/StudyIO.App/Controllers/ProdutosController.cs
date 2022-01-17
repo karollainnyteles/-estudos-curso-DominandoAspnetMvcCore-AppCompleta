@@ -24,11 +24,13 @@ namespace StudyIO.App.Controllers
             _mapper = mapper;
         }
 
+        [Route("lista-de-produtos")]
         public async Task<IActionResult> Index()
         {
             return View(_mapper.Map<IEnumerable<ProdutoViewModel>>(await _produtoRepository.ObterProdutosFornecedores()));
         }
 
+        [Route("dados-do-produto/{id:guid}")]
         public async Task<IActionResult> Details(Guid id)
         {
             var produtoViewModel = await ObterProduto(id);
@@ -40,12 +42,14 @@ namespace StudyIO.App.Controllers
             return View(produtoViewModel);
         }
 
+        [Route("cadastrar-produto")]
         public async Task<IActionResult> Create()
         {
             var produtoViewModel = await PopularFornecedores(new ProdutoViewModel());
             return View(produtoViewModel);
         }
 
+        [Route("cadastrar-produto")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProdutoViewModel produtoViewModel)
@@ -70,6 +74,7 @@ namespace StudyIO.App.Controllers
             return RedirectToAction("Index");
         }
 
+        [Route("editar-produto/{id:guid}")]
         public async Task<IActionResult> Edit(Guid id)
         {
             var produtoViewModel = await ObterProduto(id);
@@ -81,6 +86,7 @@ namespace StudyIO.App.Controllers
             return View(produtoViewModel);
         }
 
+        [Route("editar-produto/{id:guid}")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, ProdutoViewModel produtoViewModel)
@@ -120,6 +126,7 @@ namespace StudyIO.App.Controllers
             return RedirectToAction("Index");
         }
 
+        [Route("excluir-produto/{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var produto = await ObterProduto(id);
@@ -132,6 +139,7 @@ namespace StudyIO.App.Controllers
             return View(produto);
         }
 
+        [Route("excluir-produto/{id:guid}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
